@@ -1,12 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Crypto.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace Crypto.Models
 {
-    public class DataContext:DbContext
+    public class DataContext:IdentityDbContext<ApplicationUser>
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public DataContext(DbContextOptions<DataContext> options) : base(options) 
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-6N26MAE\\SQLEXPRESS;Database=CRYPTO; Integrated Security=True; TrustServerCertificate=True;");
+
         }
 
         public DbSet<Team> Teams { get; set; }

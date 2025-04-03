@@ -29,9 +29,11 @@ namespace Crypto.Controllers
 
         public IActionResult Team()
         {
-            DataContext db = new DataContext();
-            var teams = db.Teams.Include(i=> i.SocialMedias).ToList();
-            return View(teams);
+            //DataContext db = new DataContext();
+            //var teams = db.Teams.Include(i=> i.SocialMedias).ToList();
+            //return View(teams);
+
+            return View();
         }
     }
 }
